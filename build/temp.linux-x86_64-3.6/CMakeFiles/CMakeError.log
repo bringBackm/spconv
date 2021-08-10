@@ -1,0 +1,115 @@
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/local/cuda-10.1/bin/nvcc 
+Build flags: "--expt-relaxed-constexpr"
+Id flags: --keep;--keep-dir;tmp -v
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/local/cuda-10.1/bin
+#$ _THERE_=/usr/local/cuda-10.1/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_DIR_=targets/x86_64-linux
+#$ TOP=/usr/local/cuda-10.1/bin/..
+#$ NVVMIR_LIBRARY_DIR=/usr/local/cuda-10.1/bin/../nvvm/libdevice
+#$ LD_LIBRARY_PATH=/usr/local/cuda-10.1/bin/../lib:/usr/local/cuda-10.1/lib64:
+#$ PATH=/usr/local/cuda-10.1/bin/../nvvm/bin:/usr/local/cuda-10.1/bin:/home/user/anaconda3/envs/label/bin:/home/user/anaconda3/condabin:/home/user/anaconda3/bin:/usr/local/cuda-10.1/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+#$ INCLUDES="-I/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"  
+#$ LIBRARIES=  "-L/usr/local/cuda-10.1/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-10.1/bin/../targets/x86_64-linux/lib"
+#$ CUDAFE_FLAGS=
+#$ PTXAS_FLAGS=
+nvcc fatal   : Don't know what to do with '"--expt-relaxed-constexpr"'
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/local/cuda-10.1/bin/nvcc 
+Build flags: "--expt-relaxed-constexpr"
+Id flags:  -v
+
+The output was:
+1
+#$ _SPACE_= 
+#$ _CUDART_=cudart
+#$ _HERE_=/usr/local/cuda-10.1/bin
+#$ _THERE_=/usr/local/cuda-10.1/bin
+#$ _TARGET_SIZE_=
+#$ _TARGET_DIR_=
+#$ _TARGET_DIR_=targets/x86_64-linux
+#$ TOP=/usr/local/cuda-10.1/bin/..
+#$ NVVMIR_LIBRARY_DIR=/usr/local/cuda-10.1/bin/../nvvm/libdevice
+#$ LD_LIBRARY_PATH=/usr/local/cuda-10.1/bin/../lib:/usr/local/cuda-10.1/lib64:
+#$ PATH=/usr/local/cuda-10.1/bin/../nvvm/bin:/usr/local/cuda-10.1/bin:/home/user/anaconda3/envs/label/bin:/home/user/anaconda3/condabin:/home/user/anaconda3/bin:/usr/local/cuda-10.1/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+#$ INCLUDES="-I/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include"  
+#$ LIBRARIES=  "-L/usr/local/cuda-10.1/bin/../targets/x86_64-linux/lib/stubs" "-L/usr/local/cuda-10.1/bin/../targets/x86_64-linux/lib"
+#$ CUDAFE_FLAGS=
+#$ PTXAS_FLAGS=
+nvcc fatal   : Don't know what to do with '"--expt-relaxed-constexpr"'
+
+
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_650e9/fast && /usr/bin/make  -f CMakeFiles/cmTC_650e9.dir/build.make CMakeFiles/cmTC_650e9.dir/build
+make[1]: Entering directory '/home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_650e9.dir/src.cxx.o
+/usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -DVERSION_INFO=\"1.0\"  -o CMakeFiles/cmTC_650e9.dir/src.cxx.o -c /home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_650e9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_650e9.dir/link.txt --verbose=1
+/usr/bin/c++ -DVERSION_INFO=\"1.0\"  CMakeFiles/cmTC_650e9.dir/src.cxx.o -o cmTC_650e9 
+CMakeFiles/cmTC_650e9.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+src.cxx:(.text+0x56): undefined reference to `pthread_cancel'
+src.cxx:(.text+0x67): undefined reference to `pthread_join'
+src.cxx:(.text+0x7b): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_650e9.dir/build.make:98: recipe for target 'cmTC_650e9' failed
+make[1]: *** [cmTC_650e9] Error 1
+make[1]: Leaving directory '/home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_650e9/fast' failed
+make: *** [cmTC_650e9/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e83ca/fast && /usr/bin/make  -f CMakeFiles/cmTC_e83ca.dir/build.make CMakeFiles/cmTC_e83ca.dir/build
+make[1]: Entering directory '/home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e83ca.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++   -DVERSION_INFO=\"1.0\" -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_e83ca.dir/CheckFunctionExists.cxx.o -c /home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_e83ca
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e83ca.dir/link.txt --verbose=1
+/usr/bin/c++ -DVERSION_INFO=\"1.0\" -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_e83ca.dir/CheckFunctionExists.cxx.o -o cmTC_e83ca  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_e83ca.dir/build.make:98: recipe for target 'cmTC_e83ca' failed
+make[1]: *** [cmTC_e83ca] Error 1
+make[1]: Leaving directory '/home/user/shengfan/pre_label_tool/depends/spconv/build/temp.linux-x86_64-3.6/CMakeFiles/CMakeTmp'
+Makefile:127: recipe for target 'cmTC_e83ca/fast' failed
+make: *** [cmTC_e83ca/fast] Error 2
+
+
+
